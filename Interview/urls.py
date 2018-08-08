@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('home/', views.home, name='home'),
+    path('resume/<int:cv_id>/', views.download, name='resume')
     # path('admin/', admin.site.urls),
 ]
