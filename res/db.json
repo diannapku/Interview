@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "name": "\u5f90\u667a\u6d9b",
+      "id": 1,
+      "time": "8/8 14:00",
+      "position": "\u673a\u5668\u5b66\u4e60",
+      "education": "\u54c8\u5c14\u6ee8\u5de5\u4e1a\u5927\u5b66\u672c\u79d1",
+      "status": "已淘汰",
+      "comment1": "B",
+      "comment2": "F",
+      "comment3": "F"
+    },
+    {
+      "name": "周健",
+      "id": 2,
+      "time": "8/13 14:00",
+      "position": "机器学习实习",
+      "education": "非全日硕",
+      "status": "待面试",
+      "comment1": "",
+      "comment2": "",
+      "comment3": ""
+    },
+    {
+      "name": "孙文强",
+      "id": 3,
+      "time": "8/13 16:00",
+      "position": "机器学习",
+      "education": "本科物理学",
+      "status": "待面试",
+      "comment1": "",
+      "comment2": "",
+      "comment3": ""
+    }
+
+  ]
+}

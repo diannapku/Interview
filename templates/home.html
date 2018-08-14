@@ -17,7 +17,7 @@
       <span class="navbar-brand mb-0 h1">Interview</span>
       <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="/home/">Home</a>
           </li>
       </ul>
       </div>
@@ -37,19 +37,21 @@
     </tr>
   </thead>
   <tbody>
+  {% for candidate in candidates %}
     <tr>
-        <th scope="row">1</th>
-        <td>徐智涛</td>
-        <td>8/8 14:00</td>
-        <td>机器学习</td>
-        <td>哈尔滨工业大学本科</td>
-        <td>面试中</td>
+        <th scope="row">{{ candidate.id }}</th>
+        <td>{{ candidate.name }}</td>
+        <td>{{ candidate.time }}</td>
+        <td>{{ candidate.position }}</td>
+        <td>{{ candidate.education }}</td>
+        <td>{{ candidate.status }}</td>
         <td>
             <button type="button" class="btn btn-primary">查看</button>
-            <button type="button" class="btn btn-primary">面试</button>
+            <button type="button" class="btn btn-primary" onClick="location.href='/interview/{{ candidate.id }}/'">面试</button>
         </td>
 
     </tr>
+  {% endfor %}
 
   </tbody>
 </table>
