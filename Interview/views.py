@@ -7,7 +7,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 
-
 def home(request):
     path = os.path.abspath('.')
     f = open(path + "/res/db.json", encoding='utf-8')
@@ -54,6 +53,28 @@ def submit(request, cv_id):
             candidates[i]['comment3'] = comm3
             break
 
+    with open(path + "/res/db.json", 'w') as fw:
+        json.dump({'candidates': candidates}, fw, indent=2)
+
+    return HttpResponseRedirect(reverse('home'))
+
+
+def add(request):
+    t1 = request.POST['t1']
+    t2 = request.POST['t2']
+    t3 = request.POST['t3']
+    t4 = request.POST['t4']
+    t5 = request.POST['t5']
+    t6 = request.POST['t6']
+
+    path = os.path.abspath('.')
+    f = open(path + "/res/db.json", encoding='utf-8')
+    db = json.load(f)
+    candidates = db['candidates']
+    candidate = {'id': int(t1), 'name': t2, 'time': t3, 'position': t4, 'education': t5,
+                 'status': t6, 'comment1': "", 'comment2': "", 'comment3': ""}
+
+    candidates.append(candidate)
     with open(path + "/res/db.json", 'w') as fw:
         json.dump({'candidates': candidates}, fw, indent=2)
 

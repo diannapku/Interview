@@ -21,6 +21,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('interview/<int:cv_id>/', views.interview, name='interview'),
     path('resume/<int:cv_id>/', views.download, name='resume'),
-    path('submit/<int:cv_id>/', views.submit, name='submit')
+    path('submit/<int:cv_id>/', views.submit, name='submit'),
+    path('add/', views.add, name='add'),
     # path('admin/', admin.site.urls),
 ]

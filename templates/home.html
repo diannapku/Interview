@@ -24,6 +24,8 @@
   </nav>
 
   <div class="container">
+  <form action="http://localhost:8080/add/" method="post">
+      {% csrf_token %}
   <table class="table table-striped">
   <thead>
     <tr>
@@ -46,15 +48,24 @@
         <td>{{ candidate.education }}</td>
         <td>{{ candidate.status }}</td>
         <td>
-            <button type="button" class="btn btn-primary">查看</button>
             <button type="button" class="btn btn-primary" onClick="location.href='/interview/{{ candidate.id }}/'">面试</button>
         </td>
 
     </tr>
   {% endfor %}
 
+      <tr id="add">
+
+      </tr>
   </tbody>
+
+
 </table>
+
+  </form>
+
+  <button type="button" class="btn btn-primary" onclick="add()" id="addbutton">添加</button>
+
   </div>
 
     <!-- Optional JavaScript -->
@@ -62,5 +73,31 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+      function add() {
+          var tr = document.getElementById("add");
+          for (var i = 0; i < 6; i++){
+              var row = document.createElement("td");
+              var intext = document.createElement("input");
+              intext.name = "t" + (i+1);
+              intext.type ="text";
+              intext.style.width = "100px";
+              row.appendChild(intext);
+              tr.appendChild(row);
+          }
+          var sub = document.createElement("td");
+          var inbut = document.createElement("input");
+          inbut.type ="submit";
+          sub.appendChild(inbut);
+          tr.appendChild(sub);
+
+          var but = document.getElementById("addbutton");
+          but.remove();
+
+      }
+
+  </script>
+
   </body>
 </html>
