@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Lib</title>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,7 +28,7 @@
 
 
   <div class="container" style="padding-top: 15px">
-  <form method="post">
+  <form method="post" id="add" action={% url 'addques' %}>
       {% csrf_token %}
 
   {% for ques in qs %}
@@ -41,9 +42,34 @@
 
   </form>
 
-  <button type="button" class="btn btn-primary" id="addbutton">添加</button>
+  <button type="button" class="btn btn-primary" id="addbutton" onclick="add()">添加</button>
 
   </div>
+
+<script>
+    function add() {
+          var fm = document.getElementById("add");
+
+          var ques = document.createElement("textarea");
+          ques.name = "ques";
+          ques.rows = 2;
+          ques.className = "form-control";
+          var ans = document.createElement("textarea");
+          ans.name = "ans";
+          ans.rows = 8;
+          ans.className = "form-control";
+          fm.appendChild(ques);
+          fm.appendChild(ans);
+
+          var inbut = document.createElement("input");
+          inbut.type ="submit";
+          inbut.className = "btn btn-primary";
+          fm.appendChild(inbut);
+
+          var but = document.getElementById("addbutton");
+          but.remove();
+      }
+</script>
 
 
 <!-- Optional JavaScript -->

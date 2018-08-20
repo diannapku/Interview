@@ -89,3 +89,21 @@ def lib(request):
     template = loader.get_template('lib.html')
 
     return HttpResponse(template.render({"qs": db}, request))
+
+
+def addques(request):
+    t1 = request.POST['ques']
+    t2 = request.POST['ans']
+
+    path = os.path.abspath('.')
+    f = open(path + "/res/questions.json", encoding='utf-8')
+    db = json.load(f)
+
+    q = {'Q': t1, 'A': t2}
+
+    db.append(q)
+
+    with open(path + "/res/questions.json", 'w') as fw:
+        json.dump(db, fw, indent=2)
+
+    return HttpResponseRedirect(reverse('lib'))
