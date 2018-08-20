@@ -79,3 +79,13 @@ def add(request):
         json.dump({'candidates': candidates}, fw, indent=2)
 
     return HttpResponseRedirect(reverse('home'))
+
+
+def lib(request):
+    path = os.path.abspath('.')
+    f = open(path + "/res/questions.json", encoding='utf-8')
+    db = json.load(f)
+
+    template = loader.get_template('lib.html')
+
+    return HttpResponse(template.render({"qs": db}, request))

@@ -19,12 +19,15 @@
           <li class="nav-item active">
               <a class="nav-link" href="/home/">Home</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/lib/">Lib</a>
+          </li>
       </ul>
       </div>
   </nav>
 
-  <div class="container">
-  <form action="http://localhost:8080/add/" method="post">
+  <div class="container" style="padding-top: 15px">
+  <form action={% url 'add' %} method="post">
       {% csrf_token %}
   <table class="table table-striped">
   <thead>

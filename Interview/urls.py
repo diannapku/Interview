@@ -23,5 +23,6 @@ urlpatterns = [
     path('resume/<int:cv_id>/', views.download, name='resume'),
     path('submit/<int:cv_id>/', views.submit, name='submit'),
     path('add/', views.add, name='add'),
+    path('lib/', views.lib, name='lib'),
     # path('admin/', admin.site.urls),
 ]
