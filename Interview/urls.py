@@ -25,5 +25,6 @@ urlpatterns = [
     path('add/', views.add, name='add'),
     path('lib/', views.lib, name='lib'),
     path('addques/', views.addques, name='addques'),
+    path('del/<int:cv_id>/', views.dele, name='del'),
     # path('admin/', admin.site.urls),
 ]

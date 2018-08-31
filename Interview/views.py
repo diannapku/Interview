@@ -81,6 +81,22 @@ def add(request):
     return HttpResponseRedirect(reverse('home'))
 
 
+def dele(request, cv_id):
+    path = os.path.abspath('.')
+    f = open(path + "/res/db.json", encoding='utf-8')
+    db = json.load(f)
+    candidates = db['candidates']
+    for candidate in candidates:
+        if candidate['id'] == cv_id:
+            candidates.remove(candidate)
+            break
+
+    with open(path + "/res/db.json", 'w') as fw:
+        json.dump({'candidates': candidates}, fw, indent=2)
+
+    return HttpResponseRedirect(reverse('home'))
+
+
 def lib(request):
     path = os.path.abspath('.')
     f = open(path + "/res/questions.json", encoding='utf-8')
